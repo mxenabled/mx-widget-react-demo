@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import {useState} from 'react'
 import './App.css';
+import {MXWidget} from './MXWidget';
 
 function App() {
+  const [widgetURL, setWidgetURL] = useState("")
+  const [loadWidget, setLoadWidget] = useState(false)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" name="widgetURL" onChange={event => setWidgetURL(event.target.value)} />
+      <button onClick={() => setLoadWidget(true)}>Load Widget</button>
+      <button onClick={() => setLoadWidget(false)}>Close Widget</button>
+      {loadWidget &&
+        <MXWidget
+          url={widgetURL}
+          onEvent={(event) => {
+            console.log('MX message: ', event)
+          }}
+        />
+      }
     </div>
   );
 }
