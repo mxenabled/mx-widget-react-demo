@@ -44,24 +44,22 @@ export class MXWidget extends React.Component {
   }
 
   /**
-   * Render a basic iframe in a div. You'll want to customize the values here
-   * to best fit your own app.
+   * Render a basic iframe. You'll want to customize the values here to best
+   * fit your own app.
    */
   render() {
     return (
-      <div id="mx-widget">
-        <iframe
-          border={'0'}
-          frame={'0'}
-          frameBorder={'0'}
-          height={500}
-          marginHeight={'0'}
-          marginWidth={'0'}
-          src={this.props.url}
-          title={'MX Widget'}
-          width={500}
-        />
-      </div>
+      <iframe
+        border={'0'}
+        frame={'0'}
+        frameBorder={'0'}
+        height={500}
+        marginHeight={'0'}
+        marginWidth={'0'}
+        src={this.props.url}
+        title={'MX Widget'}
+        width={500}
+      />
     )
   }
 }
